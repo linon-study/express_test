@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta content="yes" name="apple-touch-fullscreen">
+  <meta content="telephone=no,email=no" name="format-detection">
+  <title>个体工商户</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="./js/lib-flexible.js"></script>
+  <script src="./js/clipboard.min.js"></script>
+</head>
+
+<body>
+  <div class="pinch-zoom over">
+    <img src="">
+  </div>
+  <textarea id="input"></textarea>
+  <div style='overflow: hidden;'>
+    <img width="100%" src='./img/新余个体工商户注册操作流程顶图.png' />
+    <div class="container">
+
+      <div class="firstChild content_wrap">
+        <img width="28%" src='./img/第一步.png' />
+        <div class="content">
+          <p class="content_title">
+            识别二维码进入江西省工商企业登记网络服务平台（<a class="code-btn" id="codeBtn" data-clipboard-target="#input" href="javascript:void(0);">wsdj.jxaic.gov.cn</a>）
+            <!-- <span class="code-btn" id="codeBtn" data-clipboard-target="#input">复制</span> -->
+          </p>
+          <img class="icon_img" src='./img/icon.png' />
+        </div>
+      </div>
+
+      <div class="content_wrap">
+        <img width="28%" src='./img/第二步.png' />
+        <div class="content">
+          <p class="content_title">个人用户注册登陆后，在“注册导航”→“名称核准”申请办理企业名称预先核准。</p>
+          <p class="content_title">详细填写说明如下：</p>
+          <div class="register">
+            <div>
+              <p class="content_title">A、选择“报登记机关核准名称”，录入名称信息，填写“字号”——“所属行业”</p>
+            </div>
+            <div>
+              <p class="content_title">B、选择<span>“企业类型”（个体工商户）——“江西省—新余市—仙女湖区中心物流园799号人力资源产业园”——“否”</span></p>
+            </div>
+            <div>
+              <p>C、录入名称信息，填写“字号”——“所属行业”（信息传输、软件和信息技术服务业）——行业表述</p>
+              <img src='./img/图片_1.png' />
+            </div>
+            <div>
+              <p>D、录入经营范围和股东（发起人、投资人）信息。经营范围填写：通信与网络设施安装服务；通信工程。</p>
+              <img src='./img/图片_2.png' />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content_wrap">
+        <img width="28%" src='./img/第三步.png' />
+        <div class="content">
+          <p class="content_title">企业名称经工商登记机关核准通过（审核周期为1~2个工作日）后，在“注册导航”→“设立登记”申请设立登记。</p>
+        </div>
+      </div>
+
+      <div class="content_wrap">
+        <img width="28%" src='./img/第四步.png' />
+        <div class="content">
+          <p class="content_title">上传住所证明文件，确认信息录入无误后，承诺并提交。</p>
+        </div>
+      </div>
+
+      <div class="content_wrap">
+        <img width="28%" src='./img/第五步.png' />
+        <div class="content">
+          <p class="content_title">通过关注“江西市场监管网上大厅”微信公众号完成“实名认证”并“在线签名”。</p>
+        </div>
+      </div>
+
+      <div class="content_wrap">
+        <img width="28%" src='./img/第六步.png' />
+        <div class="content">
+          <p class="content_title">下载“登记注册身份验证”app，完成身份认证</p>
+        </div>
+      </div>
+
+      <div class="content_wrap">
+        <img width="28%" src='./img/第七步.png' />
+        <div class="content">
+          <p class="content_title">关注“电子营业执照”微信小程序，授权办理电子营业执照。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+
+<script>
+  //购物手册点击图片放大显示
+  $(".register div img").on("click", function () {
+    $(".over img").attr("src", $(this).attr("src"))
+    $(".over").show()
+    $(".pinch-zoom").on("click", function () {
+      $(".pinch-zoom").hide()
+    })
+  })
+
+  $(".code-btn").click(function () {
+    let e = document.getElementById("codeBtn").innerText;
+    let t = document.getElementById("input");
+    t.value = e;
+    console.log(e,t)
+    //实例化clipboard
+    var clipboard = new ClipboardJS('#codeBtn');
+    clipboard.on("success", function (e) {
+      alert("复制成功！");
+      e.clearSelection();
+    });
+    clipboard.on("error", function (e) {
+      alert("请选择“拷贝”进行复制!");
+    });
+  });
+
+</script>
+
+</html>
